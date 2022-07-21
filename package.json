@@ -1,5 +1,5 @@
 {
-    "name": "node-ts-boilerplate",
+    "name": "config-api-node",
     "version": "1.0.0",
     "description": "",
     "main": "src",
@@ -7,9 +7,7 @@
         "dev": "nodemon src/index.ts",
         "start": "ts-node dist/index.js",
         "build": "tsc -p . && npm run copy-static",
-        "test": "mocha ./tests/**/*",
         "copy-static": "cp -R src/public dist/public",
-        "format:check": "prettier --check .",
         "format:write": "prettier --write .",
         "lint:fix": "eslint --fix ./**/*.ts"
     },
@@ -34,6 +32,6 @@
         "prisma": "^4.1.0"
     },
     "prisma": {
-        "schema": "src/database/psql/models/schema.prisma"
+        "schema": "src/database/models/schema.prisma"
     }
 }
