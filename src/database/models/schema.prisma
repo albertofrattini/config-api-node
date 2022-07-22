@@ -8,6 +8,6 @@ datasource db {
 }
 
 model config {
-  id      Int @id @default(autoincrement())
-  config  Json
+  id String @id @unique
+  configuration Json
 }

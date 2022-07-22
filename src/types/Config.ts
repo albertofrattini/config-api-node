@@ -1,6 +1,7 @@
 type Config = {
-    id: number;
-    config: JSON;
+    id: string;
+    name?: string;
+    value?: string;
 };
 
 export { Config };

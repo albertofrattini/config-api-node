@@ -7,6 +7,7 @@
         "dev": "nodemon src/index.ts",
         "start": "ts-node dist/index.js",
         "build": "tsc -p . && npm run copy-static",
+        "test": "mocha",
         "copy-static": "cp -R src/public dist/public",
         "format:write": "prettier --write .",
         "lint:fix": "eslint --fix ./**/*.ts"
@@ -19,7 +20,10 @@
         "@types/node": "^18.0.6",
         "@typescript-eslint/eslint-plugin": "^5.30.7",
         "@typescript-eslint/parser": "^5.30.7",
+        "chai": "^4.3.6",
         "eslint": "^8.20.0",
+        "mocha": "^10.0.0",
+        "node-fetch": "^3.2.9",
         "nodemon": "^2.0.19",
         "prettier": "^2.7.1",
         "ts-node": "^10.9.1",
