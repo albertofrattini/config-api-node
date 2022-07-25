@@ -40,9 +40,23 @@ describe("App Tests", function () {
                 .then((data) => {
                     expect(data).to.deep.equal({
                         status: "success",
-                        config: [
-                            { configuration: { id, name: "config name" } },
-                        ],
+                        config: { configuration: { id, name: "config name" } },
+                    });
+                    done();
+                })
+                .catch((e) => console.log(e.message));
+        });
+
+        it("GET /api/configs/:id - does not find the configuration", function (done) {
+            fetch(url + "/" + id + "-fake")
+                .then((response) => {
+                    expect(response.status).to.equal(200);
+                    return response.json();
+                })
+                .then((data) => {
+                    expect(data).to.deep.equal({
+                        status: "success",
+                        config: null,
                     });
                     done();
                 })
