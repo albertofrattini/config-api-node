@@ -42,7 +42,7 @@ Run the application
 npm run dev
 ```
 
-You can now check what are the endpoints and how to use them by visiting `http://localhost:3000/docs
+You can now check what are the endpoints and how to use them by visiting http://localhost:3000/docs
 
 ## Tests
 
@@ -74,3 +74,4 @@ If you want to contribute to the following project, I would advise first to take
 -   Extending the current documentation with more descriptions and working examples for each endpoint.
 -   Increase the test coverage and introducing the usage of libraries, such as Supertest, to avoid spawning the application whenever we need to test it.
 -   Extending the Prisma error handling to cover all the possible failures. Alongside this, it would be nice to move error messages into a centralized file for easier manipulation and accessibility.
+-   The usage of Typescript is minimal in the project. We need to increase the code covered by typing.
