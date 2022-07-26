@@ -94,7 +94,7 @@ export const swaggerDoc = {
                     },
                 },
             },
-            update: {
+            put: {
                 description: "Updates an existing config",
                 operationId: "updateConfig",
                 responses: {

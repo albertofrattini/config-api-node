@@ -8,12 +8,10 @@ async function getAllConfigs(req: Request, res: Response) {
     try {
         allConfigs = await getAll();
     } catch (e) {
-        return res
-            .status(500)
-            .json({
-                status: "failed",
-                error: "There was an error connecting to the database",
-            });
+        return res.status(500).json({
+            status: "failed",
+            error: "There was an error connecting to the database",
+        });
     }
 
     res.status(200).json({ status: "success", allConfigs });
@@ -31,12 +29,10 @@ async function getConfigById(req: Request, res: Response) {
     try {
         config = await getById(id);
     } catch (e) {
-        return res
-            .status(500)
-            .json({
-                status: "failed",
-                error: "There was an error connecting to the database",
-            });
+        return res.status(500).json({
+            status: "failed",
+            error: "There was an error connecting to the database",
+        });
     }
     res.status(200).json({ status: "success", config });
 }
@@ -60,12 +56,10 @@ async function createConfig(req: Request, res: Response) {
                 .status(400)
                 .json({ status: "failed", error: "This 'id' already exists" });
         }
-        return res
-            .status(500)
-            .json({
-                status: "failed",
-                error: "There was an error connecting to the database",
-            });
+        return res.status(500).json({
+            status: "failed",
+            error: "There was an error connecting to the database",
+        });
     }
 
     res.status(201).json({ status: "success", newConfig });
@@ -83,30 +77,24 @@ async function updateConfig(req: Request, res: Response) {
             .json({ status: "failed", error: "id must be specified" });
     }
     if (configObject.id !== id) {
-        return res
-            .status(400)
-            .json({
-                status: "failed",
-                error: "The 'id' in your configuration and the path 'id' do not match",
-            });
+        return res.status(400).json({
+            status: "failed",
+            error: "The 'id' in your configuration and the path 'id' do not match",
+        });
     }
     try {
         newConfig = await update(id, configObject);
     } catch (e) {
         if (e.code === "P2025") {
-            return res
-                .status(400)
-                .json({
-                    status: "failed",
-                    error: "The specified 'id' doesn't exist",
-                });
-        }
-        return res
-            .status(500)
-            .json({
+            return res.status(400).json({
                 status: "failed",
-                error: "There was an error connecting to the database",
+                error: "The specified 'id' doesn't exist",
             });
+        }
+        return res.status(500).json({
+            status: "failed",
+            error: "There was an error connecting to the database",
+        });
     }
 
     res.status(200).json({ status: "success", newConfig });
@@ -126,19 +114,15 @@ async function deleteConfig(req: Request, res: Response) {
         deletedConfig = await remove(id);
     } catch (e) {
         if (e.code === "P2025") {
-            return res
-                .status(400)
-                .json({
-                    status: "failed",
-                    error: "The specified 'id' doesn't exist",
-                });
-        }
-        return res
-            .status(500)
-            .json({
+            return res.status(400).json({
                 status: "failed",
-                error: "There was an error connecting to the database",
+                error: "The specified 'id' doesn't exist",
             });
+        }
+        return res.status(500).json({
+            status: "failed",
+            error: "There was an error connecting to the database",
+        });
     }
 
     res.status(200).json({ status: "success", deletedConfig });
